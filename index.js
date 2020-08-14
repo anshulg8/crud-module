@@ -53,4 +53,4 @@ function tryMe(model){
   createRouteAsync('./controller.js', model)
 }
 
-tryMe('Hello')
+export { tryMe }
