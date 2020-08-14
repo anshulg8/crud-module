@@ -2,20 +2,18 @@ const fs = require('fs')
 const path = require('path')
 
 function validateDirs() {
-  let dir = ['/src', '/src/routes', '/src/models']
+  let dir = ['./src', './src/routes', './src/models']
   for (let i = 0; i < dir.length; i++) {
-    d = path.join(__dirname, dir[i])
-    if (!fs.existsSync(d)){
+    if (!fs.existsSync(dir[i])){
       fs.mkdirSync(d)
     }
   }
 }
 
 function validateFiles(model) {
-  let files = [`/src/routes/${model}.js`, `/src/models/${model}.js`]
+  let files = [`./src/routes/${model}.js`, `./src/models/${model}.js`]
   for (let i = 0; i < files.length; i++) {
-    f = path.join(__dirname, files[i])
-    if (fs.existsSync(f)){
+    if (fs.existsSync(files[i])){
       console.log('File already exist')
       return
     }
